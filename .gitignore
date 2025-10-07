@@ -1,0 +1,17 @@
+@'
+# Node
+node_modules/
+npm-debug.log*
+.yarn/*
+.pnpm-store/
+dist/
+.vercel/
+# TS build caches
+*.tsbuildinfo
+# Env / secrets
+.env
+.env.local
+# OS
+.DS_Store
+Thumbs.db
+'@ | Out-File -Encoding UTF8 .gitignore
