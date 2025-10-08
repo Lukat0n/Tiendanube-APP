@@ -1,14 +1,13 @@
 (() => {
-  const CONFIG_URL = "/api/bundle-config";
-  const MAP_URL = "/api/variant-map";
+  const CURRENT_SCRIPT = document.currentScript || (function () {
+    const s = document.getElementsByTagName('script');
+    return s[s.length - 1];
+  })();
+  const BASE = new URL(CURRENT_SCRIPT.src).origin;
 
-  const SELECTORS = [
-    "form[action*='/cart'] .btn, form[action*='/cart'] [type=submit]",
-    ".buy-button, button[name='add'], .product-form [type=submit]"
-  ];
+  const CONFIG_URL = `${BASE}/api/bundle-config`;
+  const MAP_URL = `${BASE}/api/variant-map`;
 
-  const $ = (s, c = document) => c.querySelector(s);
-  const $$ = (s, c = document) => Array.from(c.querySelectorAll(s));
 
   function money(n, currency) {
     try {

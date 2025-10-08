@@ -1,5 +1,10 @@
-// De inicio vacío; lo llenaremos cuando implementes el sync de variantes-sombra
-export default function handler(_req: any, res: any) {
-  const VARIANT_MAP: Record<string, { x2?: number; x3?: number; x4?: number }> = {};
-  res.status(200).json(VARIANT_MAP);
+export default function handler(req: any, res: any) {
+  if (req.method === "OPTIONS") {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET,OPTIONS");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+    return res.status(204).end();
+  }
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.status(200).json({});
 }
