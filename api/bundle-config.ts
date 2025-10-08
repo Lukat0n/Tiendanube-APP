@@ -1,6 +1,5 @@
-// Minimal para que el widget funcione
 export default function handler(_req: any, res: any) {
-  const CONFIG = {
+  res.status(200).json({
     themeColor: "#ff3b7f",
     currency: "ARS",
     visibleSizes: [1, 2, 3, 4],
@@ -25,6 +24,5 @@ export default function handler(_req: any, res: any) {
       { productId: 4444444, title: "Botella EcomClub", variantId: 55555551, price: 999000, discountPct: 0 },
       { productId: 4444445, title: "Hoodie EcomClub",   variantId: 55555552, price: 2999900, discountPct: 0 }
     ]
-  };
-  res.status(200).json(CONFIG);
+  });
 }
